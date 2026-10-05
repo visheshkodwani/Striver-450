@@ -1,5 +1,5 @@
 title: Striver 450
-description: My notes on Striver's DSA sheet, in C++.
+description: My revision notes for Striver's DSA sheet. Every solution in C++.
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
@@ -9,3 +9,4 @@ back_to_top: true
 back_to_top_text: "Back to top"
 aux_links:
   "GitHub": "https://github.com/visheshkodwani/Striver-450"
+total_problems: 450
