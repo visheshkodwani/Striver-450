@@ -1,5 +1,6 @@
 ---
 title: Two Sum
+parent: Arrays
 ---
 
 # Two Sum
@@ -22,5 +23,4 @@ vector<int> twoSum(vector<int>& nums, int target) {
 ```
 
 **Time:** O(n) · **Space:** O(n)
-
-[← Back](../index.md)
+{: .label .label-green }
