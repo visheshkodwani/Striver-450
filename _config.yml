@@ -1,0 +1,6 @@
+title: Striver 450
+description: My notes on Striver's DSA sheet, in C++.
+theme: minima
+# keep the top nav clean instead of listing every problem page
+header_pages:
+  - index.md
