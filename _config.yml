@@ -10,3 +10,5 @@ back_to_top_text: "Back to top"
 aux_links:
   "GitHub": "https://github.com/visheshkodwani/Striver-450"
 total_problems: 450
+mermaid:
+  version: "11.4.1"

@@ -668,3 +668,102 @@ hr {
 .main-content table {
   border-radius: 12px;
 }
+
+// ---------- visualizations:  {% include array.html ... %}  and ```mermaid ----------
+.viz {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: $surface;
+  border: 1px solid $border-color;
+  overflow-x: auto;
+}
+
+.arr-step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  padding: 0.35rem 0;
+
+  & + .arr-step {
+    border-top: 1px dashed rgba(255, 255, 255, 0.06);
+  }
+}
+
+.arr-label {
+  min-width: 6rem;
+  font-family: $mono-font-family;
+  font-size: 0.78rem;
+  color: $muted;
+}
+
+.arr {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 2.4rem;
+  padding: 0.3rem 0 0.15rem;
+  border-radius: 8px;
+  background: $surface-2;
+  border: 1px solid $border-color;
+  font-family: $mono-font-family;
+  line-height: 1.3;
+
+  b {
+    font-size: 1rem;
+    color: $body-heading-color;
+  }
+
+  i {
+    font-style: normal;
+    font-size: 0.62rem;
+    color: $muted;
+  }
+
+  &.done {
+    background: rgba($green, 0.12);
+    border-color: rgba($green, 0.45);
+
+    b { color: $green; }
+  }
+
+  &.hl {
+    background: rgba($pink, 0.16);
+    border-color: $pink;
+    box-shadow: 0 0 12px rgba($pink, 0.35);
+
+    b { color: #fff; }
+  }
+}
+
+.arr-note {
+  font-size: 0.86rem;
+  color: $body-text-color;
+}
+
+.viz-legend {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  color: $muted;
+
+  .hl { color: $pink; }
+  .done { color: $green; }
+}
+
+// mermaid diagrams: drop the code-window chrome
+div.highlighter-rouge.language-mermaid,
+.language-mermaid {
+  padding-top: 0;
+  text-align: center;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}

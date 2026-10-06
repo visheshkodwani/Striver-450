@@ -2,7 +2,7 @@
 title: Quick Sort
 layout: problem
 parent: Sorting
-nav_order: 4
+nav_order: 5
 difficulty: Medium
 time: O(n log n) avg, O(n²) worst
 space: O(log n) stack
@@ -24,6 +24,31 @@ Output: [1, 1, 4, 4, 5]
 
 {: .intuition }
 > **Pick a pivot, put it in its final spot, recurse on both sides.** Partition with the last element as pivot: `i` marks the end of the "smaller than pivot" zone. Every `nums[j] < pivot` is swapped into that zone. Finally swap the pivot to `i + 1`. Everything left of it is smaller, everything right is bigger or equal.
+
+## Dry run
+
+Recursion tree: each node is one `partition` call.
+
+```mermaid
+graph TD
+  A["[7, 4, 1, 5, 3]<br/>pivot 3 → idx 1"] --> B["[1]<br/>done"]
+  A --> C["[7, 5, 4]<br/>pivot 4 → idx 2"]
+  C --> D["[ ]"]
+  C --> E["[5, 7]<br/>pivot 7 → idx 4"]
+  E --> F["[5]<br/>done"]
+  E --> G["[ ]"]
+```
+
+Array after each partition:
+
+<div class="viz">
+<p class="viz-legend"><span class="hl">■ pivot placed</span> · <span class="done">■ final</span></p>
+{% include array.html v="7,4,1,5,3" label="start" %}
+{% include array.html v="1,3,7,5,4" hl="1" label="[0..4]" note="pivot 3: only 1 is smaller → 1 to the left, 3 to idx 1" %}
+{% include array.html v="1,3,4,5,7" hl="2" done="0,1" label="[2..4]" note="pivot 4: nothing smaller → 4 to idx 2" %}
+{% include array.html v="1,3,4,5,7" hl="4" done="0,1,2" label="[3..4]" note="pivot 7: 5 is smaller → 7 stays at idx 4" %}
+{% include array.html v="1,3,4,5,7" done="0,1,2,3,4" label="done" %}
+</div>
 
 ## Code
 

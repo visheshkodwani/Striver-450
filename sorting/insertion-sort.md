@@ -25,6 +25,17 @@ Output: [1, 1, 4, 4, 5]
 {: .intuition }
 > **Take the next element and insert it into its place in the sorted left part.** Keep `nums[0..i-1]` sorted. Pick `key = nums[i]`, shift every bigger element one step right, then drop `key` into the gap.
 
+## Dry run
+
+<div class="viz">
+<p class="viz-legend"><span class="hl">■ key, after inserting</span> · <span class="done">■ sorted left part</span></p>
+{% include array.html v="7,4,1,5,3" done="0" label="start" note="[7] alone is sorted" %}
+{% include array.html v="4,7,1,5,3" hl="0" done="1" label="i = 1" note="key 4: shift 7 → insert at 0" %}
+{% include array.html v="1,4,7,5,3" hl="0" done="1,2" label="i = 2" note="key 1: shift 7, 4 → insert at 0" %}
+{% include array.html v="1,4,5,7,3" hl="2" done="0,1,3" label="i = 3" note="key 5: shift 7, stop at 4 → insert at 2" %}
+{% include array.html v="1,3,4,5,7" hl="1" done="0,2,3,4" label="i = 4" note="key 3: shift 7, 5, 4 → insert at 1" %}
+</div>
+
 ## Code
 
 ```cpp
