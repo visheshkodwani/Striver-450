@@ -46,5 +46,26 @@ public:
 {: .pitfall }
 > The inner loop stops at `n - i - 1` because `j + 1` must stay in bounds and the last `i` elements are already in place.
 
+## Better: stop early
+
+If a whole pass makes no swaps, the array is already sorted. A sorted input now takes O(n) instead of O(n²).
+
+```cpp
+vector<int> bubbleSort(vector<int>& nums) {
+    int n = nums.size();
+    for (int i = 0; i < n - 1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < n - i - 1; j++) {
+            if (nums[j] > nums[j + 1]) {
+                swap(nums[j], nums[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) break;  // no swaps = already sorted
+    }
+    return nums;
+}
+```
+
 {: .revisit }
-> Add a `bool swapped` flag and break when a pass makes no swaps: a sorted array then takes O(n). Bubble sort is stable, selection sort is not.
+> Bubble sort is stable, selection sort is not. Best case O(n) only with the `swapped` flag.
