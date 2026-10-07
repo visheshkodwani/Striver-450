@@ -594,6 +594,8 @@ div.highlighter-rouge {
     color: $muted;
   }
 
+  &.language-plaintext::after { content: "Example"; }
+  &.language-plaintext code { color: #c0caf5; }
   &.language-cpp::after { content: "C++"; }
   &.language-c::after { content: "C"; }
   &.language-java::after { content: "Java"; }
